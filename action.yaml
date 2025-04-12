@@ -1,0 +1,21 @@
+name: Notify Update Service
+description: Notifies the Secure Update Service of a new GitHub release
+author: asaidimu
+inputs:
+    server:
+        description: URL of the update service
+        required: false
+        default: http://localhost:8080
+    key:
+        description: API key for update service authentication
+        required: true
+    app:
+        description: Application identifier (defaults to repository name)
+        required: false
+    assets:
+        description: 'JSON mapping asset names to platform and architecture (e.g., {"file": {"platform": "linux", "architecture": "amd64"}})'
+        required: false
+        default: "{}"
+runs:
+    using: node20
+    main: dist/main.js
